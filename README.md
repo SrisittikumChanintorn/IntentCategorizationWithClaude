@@ -1,44 +1,90 @@
-# Claude Terminal App
+# Intent Categorization by using Claude
 
-This simple application lets you chat with Anthropic's Claude directly from your computer terminal.
+An intelligent intent classification system that leverages Anthropic's Claude LLM to categorize user queries without requiring traditional supervised learning approaches.
 
-## What is this program ?
+## About Natural Language Understanding (NLU) & This Project
 
-Talk to Claude without using a web browser! Just type your questions or messages, and the AI will respond right in your terminal window.
+Natural Language Understanding (NLU) is a critical component in modern conversational AI systems. Traditional approaches to intent classification often require extensive labeled datasets and supervised learning models to categorize user inputs effectively.
 
-The program can:
-- Connect to Claude model
-- Follow custom instructions you set
-- Remember your conversation history
+This project takes a different approach by using Semantic Language Models (SLMs) to perform intent categorization. Instead of training a dedicated classifier, we harness Claude's powerful language understanding capabilities to categorize user queries into predefined domains:
+- Healthcare
+- Legal
+- Education
+- Other topics
 
-## Getting started
+By using an SLM for intent categorization, we can map user queries to the appropriate agentic workflow without the overhead of preparing and training supervised learning models. This approach provides several advantages:
 
-1. Make sure you have Python installed
-2. Install the required package: `pip install anthropic==0.49.0` by folliwong this step
+1. No need for labeled training data
+2. Simpler implementation and maintenance
+3. Flexibility to easily add new intent categories
+4. Ability to handle nuanced and complex queries
 
-   ```bash
-      pip install -r requirements.txt
-   ```
-   
-3. Add your OpenAI API key in the `main.py` file where it says "YOUR_API_KEY"
-4. Run the program in CMD : `python main.py`
+While this approach slightly increases inference costs (by making an additional API call for categorization), it dramatically reduces development time and improves extensibility for future advanced chatbot implementations requiring task-specific workflows.
 
-## How to use
+## Project Structure
 
-After starting the program:
-1. Type your question after "User: "
-2. Read the AI's response
-3. Continue the conversation
-4. Type "quit", "q", or "exit" when you want to stop
+```bash
+.
+├── chatbot.py         # Contains intent categorization logic and admin response functions
+├── main.py            # Main execution script with chat loop functionality
+├── README.md          # Documentation (this file)
+└── requirements.txt   # Project dependencies
+```
 
-## Customizing the AI
+## How It Works
 
-You can change how the AI responds by editing the "instruction" line in `main.py`. The current instruction is in Thai and tells the AI to be friendly and helpful.
+1. User inputs a query in the command-line interface
+2. The system sends the query to Claude with specific instructions to identify the intent
+3. Based on the returned intent category, the appropriate admin handler is called
+4. The system responds with domain-specific messaging
+5. The loop continues until the user exits
 
-## Files included
+## Key Components
 
-- `main.py` - The main program
-- `anthropic_chatbot.py` - Handles communication with Claude
-- `requirements.txt` - Lists required software
+- **Intent Categorizer**: Uses prompt engineering with Claude to classify user queries
+- **Domain-Specific Handlers**: Separate functions for healthcare, legal, education, and other queries
+- **Chat Loop**: Simple command-line interface for user interaction
 
-Enjoy chatting with AI from your terminal!
+## Installation and Usage
+
+### Prerequisites
+- Python 3.6+
+- An Anthropic API key
+
+### Setup
+
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/connectclaude-api.git
+cd connectclaude-api
+```
+
+2. Create and activate a virtual environment:
+```bash
+python -m venv .venv
+source .venv/bin/activate  # On Windows, use: .venv\Scripts\activate
+```
+
+3. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+4. Replace the API key in `main.py` with your actual Anthropic API key.
+
+### Running the Application
+
+Start the application by running:
+```bash
+python main.py
+```
+
+Enter your queries at the prompt. Type 'quit', 'q', or 'exit' to end the session.
+
+## Future Enhancements
+
+- Add more specialized intent categories
+- Improve the admin response handlers with more detailed information
+- Implement conversation history for context-aware responses
+- Create a web interface for easier interaction
+- Add support for multi-turn conversations
