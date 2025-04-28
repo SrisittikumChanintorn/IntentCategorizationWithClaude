@@ -53,33 +53,37 @@ While this approach slightly increases inference costs (by making an additional 
 
 ### Setup
 
-1. Clone the repository:
+1. Clone this project to your repository:
+
+### Create Virtual Environment (optional but recommended)
+
 ```bash
-git clone https://github.com/yourusername/connectclaude-api.git
-cd connectclaude-api
+python -m venv venv
 ```
 
-2. Create and activate a virtual environment:
+2. Activate Virtual Environment (venv)
+   
 ```bash
-python -m venv .venv
-source .venv/bin/activate  # On Windows, use: .venv\Scripts\activate
+source venv/bin/activate  # On MacOS use this
+venv\Scripts\activate     # On Windows use this 
 ```
 
-3. Install dependencies:
+3. Install dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-4. Replace the API key in `main.py` with your actual Anthropic API key.
 
-### Running the Application
+4. Configure API key
+#### Edit agentic_workflow/config.py with your API key
 
-Start the application by running:
+5. Run the analysis
+
 ```bash
 python main.py
 ```
 
-Enter your queries at the prompt. Type 'quit', 'q', or 'exit' to end the session.
+Enter your queries at the prompt. Type 'quit', 'q', or 'exit' to end the session or forced quit.
 
 ## Future Enhancements
 
