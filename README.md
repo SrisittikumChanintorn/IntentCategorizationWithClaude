@@ -24,9 +24,7 @@ While this approach slightly increases inference costs (by making an additional 
 ## Project Structure
 
 ```bash
-CONNECTCLAUDE_API/
-├── __pycache__/
-├── .venv/
+./
 ├── chatbot.py         # Contains intent categorization logic and admin response functions
 ├── main.py            # Main execution script with chat loop functionality
 ├── README.md          # Documentation (this file)
