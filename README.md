@@ -65,7 +65,7 @@ pip install -r requirements.txt
 5. Configure API key 🔑
 ```bash 
 # Initalize API Key
-API_KEY = 'YOUR_API_KEY'  # Replace with your actual OpenAI API key
+API_KEY = 'YOUR_API_KEY'  # Replace with your actual API key
 ```
 
 6. Run the analysis ▶️
