@@ -13,7 +13,7 @@ INSTRUCTION = """You are intent categorizer. Base on the user's input, answer "h
 
 
 # Initalize API Key
-API_KEY = 'YOUR_API_KEY'  # Replace with your actual OpenAI API key
+API_KEY = 'YOUR_API_KEY'  # Replace with your actual API key
 
 # Initialize the Anthropic API client
 LLM1 = anthropic.Anthropic(api_key=API_KEY)
